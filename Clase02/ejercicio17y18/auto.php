@@ -69,6 +69,37 @@ class Auto
         }
     }
 
+    public static function AltaAuto($arrayAutos, $rutaArchivo = "autos.cvs")
+    {
+        if($arrayAutos != null)
+        {
+            $archivo = fopen($rutaArchivo, "w");
+            foreach($arrayAutos as $auto)
+            {
+                fwrite($archivo, implode(',', get_object_vars($auto)) . PHP_EOL);//EQUIVALE A \n
+            }
+            fclose($archivo);
+        }
+    }
+
+    public static function LeerAutos($rutaArchivo = "autos.cvs")
+    {
+        $retorno = array();
+        $archivo = fopen($rutaArchivo, "r");
+
+        while(!feof($archivo))
+        {
+            $linea = fgets($archivo);
+            if(!empty($linea))
+            {
+                $data = explode(",", $linea);//Crea array con la info separada por ',' en este caso.
+                array_push($retorno, new Auto($data[0], $data[2], $data[1], $data[3])); //creo un auto para agregarlo al array que voy a devolver.
+            }
+        }
+        return $retorno;
+    }
+    
+
 }
 
 

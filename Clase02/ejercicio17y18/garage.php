@@ -13,9 +13,12 @@ class Garage
 
     public function __construct($razonSocial, $precioPorHora = 0)
     {
-        $this->_razonSocial = $razonSocial;
-        $this->_precioPorHora = $precioPorHora;
-        $this->_autos = array();
+      if(gettype($razonSocial) == "string")
+      {
+         $this->_razonSocial = $razonSocial;
+         $this->_precioPorHora = $precioPorHora;
+      }
+      $this->_autos = array();
     }
 
     public function MostrarGarage()
@@ -63,6 +66,8 @@ class Garage
       }
    }
 }
+
+
 
 
 ?>
