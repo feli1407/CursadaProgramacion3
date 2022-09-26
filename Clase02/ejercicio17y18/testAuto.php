@@ -16,9 +16,9 @@ $auto5 = new Auto("verde", "ford", 180000, 2020);
 $auto6 = new Auto("celeste", "VW", 216000, 2015);
 $auto7 = new Auto("amarillo", "fiat", 95000, 2017);
 
-$auto3->AgregarImpuestos(1500);
+$auto3->AgregarImpuesto(1500);
 //$auto4->AgregarImpuestos(1500);
-$auto5->AgregarImpuestos(1500);
+$auto5->AgregarImpuesto(1500);
 
 // echo "<br>El importe de auto1 y auto2 es: " . Auto::Add($auto1, $auto2);
 
@@ -47,7 +47,7 @@ $garage->Add($auto5);
 //$garage->MostrarGarage();
 
 $arrayAutosLeido = array();
-$arrayAutosLeido = Auto::LeerAutos();
+$arrayAutosLeido = Auto::LecturaAuto();
 foreach($arrayAutosLeido as $auto)
 {
     Auto::MostrarAuto($auto);
