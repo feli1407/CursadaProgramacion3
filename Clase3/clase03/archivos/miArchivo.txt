@@ -1,0 +1,4 @@
+línea uno
+línea dos
+línea tres
+-Escribo en el archivo.
